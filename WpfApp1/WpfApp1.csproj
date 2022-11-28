@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="bold.png" />
+    <None Remove="italic-font.png" />
+    <None Remove="underlined-text.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="bold.png" />
+    <Resource Include="italic-font.png" />
+    <Resource Include="underlined-text.png" />
+  </ItemGroup>
+
+</Project>

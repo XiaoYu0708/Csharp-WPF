@@ -27,7 +27,7 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            myDocumentViewer myDocumentViewer = new myDocumentViewer(); 
+            MyDocumentViewer myDocumentViewer = new MyDocumentViewer(); 
             myDocumentViewer.Show();
         }
     }

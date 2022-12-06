@@ -19,10 +19,11 @@ namespace WpfApp1
     /// <summary>
     /// myDocumentViewer.xaml 的互動邏輯
     /// </summary>
-    public partial class myDocumentViewer : Window
+    public partial class MyDocumentViewer : Window
     {
         Color fontColor = Colors.Black;
-        public myDocumentViewer()
+        Color backgroundColor = Colors.Transparent;
+        public MyDocumentViewer()
         {
             InitializeComponent();
             foreach (FontFamily fontfamily in Fonts.SystemFontFamilies)
@@ -35,10 +36,12 @@ namespace WpfApp1
 
             comFontSize.SelectedIndex = 4;
 
-            fontColorPicker.SelectedColor = fontColor; 
+            fontColorPicker.SelectedColor = fontColor;
+
+            backgroundColorPicker.SelectedColor = backgroundColor;
         }
 
-        private void rtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
+        private void RtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
         {
             object property = rtbEditor.Selection.GetPropertyValue(Inline.FontWeightProperty);
             btnBold.IsChecked = (property != DependencyProperty.UnsetValue) && (property.Equals(FontWeights.Bold));
@@ -57,9 +60,16 @@ namespace WpfApp1
 
             SolidColorBrush? foregroundProperty = rtbEditor.Selection.GetPropertyValue(Inline.ForegroundProperty) as SolidColorBrush;
             fontColorPicker.SelectedColor = foregroundProperty.Color;
+
+            SolidColorBrush? backgroundProperty = rtbEditor.Selection.GetPropertyValue(Inline.BackgroundProperty) as SolidColorBrush;
+            if (backgroundProperty != null)
+                backgroundColorPicker.SelectedColor = backgroundProperty.Color;
+            else
+                backgroundColorPicker.SelectedColor = Colors.Transparent;
+
         }
 
-        private void comFontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComFontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comFontFamily.SelectedItem != null)
             {
@@ -67,7 +77,7 @@ namespace WpfApp1
             }
         }
 
-        private void comFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comFontSize.SelectedItem != null)
             {
@@ -75,17 +85,24 @@ namespace WpfApp1
             }
         }
 
-        private void fontColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        private void FontColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
             fontColor = (Color)e.NewValue;
             SolidColorBrush colorBrush = new SolidColorBrush(fontColor);
-            rtbEditor.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, colorBrush);
+            rtbEditor.Selection.ApplyPropertyValue(Inline.ForegroundProperty, colorBrush);
+        }
+
+        private void BackgroundColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            backgroundColor = (Color)e.NewValue;
+            SolidColorBrush colorBrush = new SolidColorBrush(backgroundColor);
+            rtbEditor.Selection.ApplyPropertyValue(Inline.BackgroundProperty, colorBrush);
         }
 
         private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Rich Text Format file|*.ref|所有檔案|*.*";
+            fileDialog.Filter = "Rich Text Format file|*.ref|HTML Text Format file|*.html|所有檔案|*.*";
             if (fileDialog.ShowDialog() == true)
             {
                 FileStream fs = new FileStream(fileDialog.FileName, FileMode.Open);
@@ -97,7 +114,7 @@ namespace WpfApp1
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             SaveFileDialog fileDialog = new SaveFileDialog();
-            fileDialog.Filter = "Rich Text Format file|*.ref|所有檔案|*.*";
+            fileDialog.Filter = "Rich Text Format file|*.ref|HTML Text Format file|*.html|所有檔案|*.*";
             if (fileDialog.ShowDialog() == true)
             {
                 FileStream fs = new FileStream(fileDialog.FileName, FileMode.Create);
@@ -108,7 +125,7 @@ namespace WpfApp1
 
         private void New_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            myDocumentViewer myDocumentViewer = new myDocumentViewer();
+            MyDocumentViewer myDocumentViewer = new MyDocumentViewer();
             myDocumentViewer.Show();
         }
 

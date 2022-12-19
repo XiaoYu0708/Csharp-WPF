@@ -17,5 +17,9 @@ namespace WpfApp1
         {
             Tutor = tutor;
         }
+        public override string ToString()
+        {
+            return $"{Tutor.TeacherName}:[{OpeningClass}]{CourseName}({Type}{Point}學分)";
+        }
     }
 }

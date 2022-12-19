@@ -22,10 +22,31 @@ namespace WpfApp1
     {
         List<Teacher> teachers = new List<Teacher>();
         List<Course> courses = new List<Course>();
+        List<Student> students = new List<Student>();
+        List<Record> records = new List<Record>();
+
+        Student? selectedStudent = null;
+        Teacher? selectedTeacher = null;
+        Course? selectedCourse = null;
+        Record? selectedRecord = null;
         public MainWindow()
         {
             InitializeComponent();
+            InitializeCourse();
+            InitializeStudent();
+        }
+        private void InitializeStudent()
+        {
+            Student student1 = new Student() { StudentID = "A1234567890", StudentName = "陳小明"};
+            students.Add(student1);
+            Student student2 = new Student() { StudentID = "A12345654321", StudentName = "王小美" };
+            students.Add(student2);
 
+            cmbStudent.ItemsSource = students;
+            cmbStudent.SelectedIndex = 0;
+        }
+        private void InitializeCourse()
+        {
             //建立測試資料
             Teacher teacher1 = new Teacher("陳定宏");
             //Course coursela = new Course(teacher1) {CourseNmae="視窗程式設計",OpeningClass="五專三甲",Point=3,Type="必修" };
@@ -46,9 +67,9 @@ namespace WpfApp1
 
             trvteacher.ItemsSource = teachers;
 
-            foreach(Teacher teacher in teachers)
+            foreach (Teacher teacher in teachers)
             {
-                foreach(Course course in teacher.TeachingCourses)
+                foreach (Course course in teacher.TeachingCourses)
                 {
                     courses.Add(course);
                 }
@@ -56,5 +77,83 @@ namespace WpfApp1
 
             lbCourse.ItemsSource = courses;
         }
+
+        private void cmbStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedStudent = (Student)cmbStudent.SelectedItem;
+            statusLabel.Content = "選擇學生：" + selectedStudent;
+        }
+
+
+        private void trvteacher_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            if (trvteacher.SelectedItem is Teacher)
+            {
+                selectedTeacher = trvteacher.SelectedItem as Teacher;
+                statusLabel.Content = "選擇老師：" + selectedTeacher;
+            }
+            if(trvteacher.SelectedItem is Course)
+            {
+                selectedCourse = trvteacher.SelectedItem as Course;
+                statusLabel.Content = "選擇課程：" + selectedCourse;
+            }
+        }
+
+        private void lbCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedCourse = lbCourse.SelectedItem as Course;
+            statusLabel.Content = "選擇課程：" + selectedCourse;
+        }
+
+        private void registerButton(object sender, RoutedEventArgs e)
+        {
+            if (selectedStudent == null || selectedCourse == null)
+            {
+                MessageBox.Show("請選擇學生或課程", "資料不足");
+            }
+            else
+            {
+                Record currentRecord = new Record() 
+                {
+                    SelectedStudent = selectedStudent,
+                    SelectedCourse = selectedCourse
+                };
+
+                foreach (Record r in records)
+                {
+                    if (r.Equals(currentRecord))
+                    {
+                        MessageBox.Show($"{selectedStudent.StudentName}已選擇{selectedCourse.CourseName}課程了");
+                        return;
+                    }
+                }
+                records.Add(currentRecord);
+                lvRecord.ItemsSource = records;
+                lvRecord.Items.Refresh();
+            }            
+        }
+        private void lvRecord_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lvRecord.SelectedItem != null)
+            {
+                selectedRecord = lvRecord.SelectedItem as Record;
+                statusLabel.Content = selectedRecord;
+            }
+        }
+        private void wuthdrawButton(object sender, RoutedEventArgs e)
+        {
+            if (selectedRecord != null)
+            {
+                records.Remove(selectedRecord);
+                lvRecord.ItemsSource = records;
+                lvRecord.Items.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("請選擇要退選的紀錄");
+            }
+        }
+
+        
     }
 }

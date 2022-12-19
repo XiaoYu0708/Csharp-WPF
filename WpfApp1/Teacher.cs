@@ -16,5 +16,9 @@ namespace WpfApp1
             this.TeacherName = teacherName;
             this.TeachingCourses = new ObservableCollection<Course>();
         }
+        public override string ToString()
+        {
+            return $"{TeacherName}";
+        }
     }
 }

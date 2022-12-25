@@ -17,7 +17,7 @@
 [📍TOP](#目錄)
 ### 📙作業
 >- [作業八-Csharp 繪圖(2022/11/30)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-paint-3)
->- [作業十-Csharp 課程分類(2022/12/21)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-Course-2)
+>- [作業十-Csharp 課程分類(2022/12/21)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-Course-3)
 
 [📍TOP](#目錄)
 

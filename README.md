@@ -1,31 +1,7 @@
-# Csharp 視窗程式設計(Public)
+# 期末上機考試
 
-## 📂目錄
->- [🪑上課](#上課)
->- [📙作業](#作業)
->- [🖌筆記](#筆記)
->- [🏫考試](#考試)
-
-### 🪑上課
->- [Csharp 繪圖(2022/11/21)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-paint-1)
->- [Csharp 繪圖(2022/11/28)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-paint-2)
->- [Csharp 多視窗(2022/11/28)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-multi-window-1)
->- [Csharp 多視窗(2022/12/05)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-multi-window-2)
->- [Csharp 多視窗(2022/12/06)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-multi-window-3)
->- [Csharp 課程分類(2022/12/12)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-Course-1)
->- [Csharp 課程分類(2022/12/19)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-Course-2)
-
-[📍TOP](#目錄)
-### 📙作業
->- [作業八-Csharp 繪圖(2022/11/30)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-paint-3)
->- [作業十-Csharp 課程分類(2022/12/21)](https://github.com/XiaoYu0708/Csharp-Public/tree/Csharp-Course-3)
-
-[📍TOP](#目錄)
-
-### 🖌筆記
-
-[📍TOP](#目錄)
-
-### 🏫考試
-
-[📍TOP](#目錄)
+請參閱範例執行檔，就以下說明完成期末上機考試內容，完成後請上傳你的程式執行檔與程式碼(包含xaml和cs檔，輸出成一個以你學號為檔名的pdf檔)。程式功能如下：  
+- 主畫面視窗：視窗標題為你的學號姓名，以及三個RadioButton所構成的選項，分別開啟三個視窗。
+- 計算成績視窗：此視窗包含三個Slider(分數0~100整數)，可以連動到一個Label來分別代表各科目成績(國文30%，英文30%，數學40%)。一個Textblock來呈現各科目分數以及總分。若總分及格背景設為淡綠色(PaleGreen)，若總分不及格則背景設為粉紅色(Pink)。(提示：實作Slider的ValueChanged方法)
+- 課程大綱說明：此視窗裡面包含一個ComboBox，用以呈現開課的課程。課程內容請自行至網路選課系統選取三門課程來呈現。每次點選ComboBox內的課程，將於視窗下方呈現此門課的細節內容，包含授課教師，開課班級以及課程大綱。課程說明請以Grid來編排。
+- 剪刀石頭布遊戲：請以extented WPF toolkit內之IntegerUpDown元件表示每次下注的賭金。初始賭金為100元，每次下注最少1元，若下注金額大於剩餘金額則以MessageBox提示玩家。玩家贏將訊息TextBlock背景以LightGreen呈現；電腦贏以LightPink呈現；平手則以LightGray呈現。

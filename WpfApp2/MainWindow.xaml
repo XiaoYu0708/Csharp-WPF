@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <GroupBox Header="內用/外帶" Margin="14,0,341,280" Background="#FFEBA2EF" BorderBrush="DeepSkyBlue">
+            <StackPanel>
+                <RadioButton x:Name="rb1" IsChecked="True" Content="內用"/>
+                <RadioButton x:Name="rb2" Content="外帶"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="飲料品項" Margin="14,155,341,0" Background="#FFA2CAEF" BorderBrush="DeepSkyBlue">
+            <StackPanel x:Name="stackpanel_DrinkMenu" Margin="-2,2,0,0" HorizontalAlignment="Left" Width="auto" Height="auto"/>
+        </GroupBox>
+        <Button Content="點餐" HorizontalAlignment="Left" Margin="464,10,0,0" VerticalAlignment="Top" Height="145" Width="311" Click="Button_Click_1"/>
+        <TextBlock x:Name="DisplayTextBlock" HorizontalAlignment="Left" Margin="464,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="265" Width="326" />
+
+    </Grid>
+</Window>

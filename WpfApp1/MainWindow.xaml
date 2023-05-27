@@ -1,0 +1,16 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="5A9G0016，魏崇宇" Height="150" Width="300" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="學號：5A9G0016，姓名：魏崇宇" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="第一題" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <RadioButton Content="第二題" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1"/>
+        <RadioButton Content="第三題" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_2"/>
+
+    </Grid>
+</Window>

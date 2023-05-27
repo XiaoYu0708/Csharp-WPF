@@ -1,0 +1,25 @@
+﻿<Window x:Class="Main.MainWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:local="clr-namespace:Main"
+ mc:Ignorable="d"
+ Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF03D7FF" Offset="1"/>
+                <GradientStop Color="#FFAF00FF" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="請輸入一個值(N):" HorizontalAlignment="Left" Margin="19,65,0,0"
+VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="textbox_1" HorizontalAlignment="Left" Margin="160,73,0,0"
+TextWrapping="Wrap" VerticalAlignment="Top" Width="295"/>
+        <Button x:Name="button_click" Content="確定" HorizontalAlignment="Left"
+Margin="627,73,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <TextBox x:Name="textbox_2" TextWrapping="Wrap" Margin="10,105,10,10"
+Background="Transparent" Foreground="White"/>
+    </Grid>
+</Window>

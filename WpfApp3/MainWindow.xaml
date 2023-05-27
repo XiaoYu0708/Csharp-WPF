@@ -1,0 +1,56 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="速食點餐系統" Height="450" Width="800">
+    <Grid Background="#FFF8BBD0">
+
+        <StackPanel HorizontalAlignment="Left" Orientation="Vertical" VerticalAlignment="Center" Margin="20,0,0,0">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="大麥克漢堡(套餐)" Width="200" FontSize="24"/>
+                <Label Content="150元" RenderTransformOrigin="0.485,0.414" Width="80" FontSize="24" Height="NaN"/>
+                <TextBox x:Name="textbox1" TextWrapping="Wrap" Width="100" Background="#FFF48FB1" Height="NaN" TextChanged="PlaceOrder"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="大麥克漢堡(單點)" Width="200" FontSize="24"/>
+                <Label Content="90元" RenderTransformOrigin="0.485,0.414" Width="80" FontSize="24"/>
+                <TextBox x:Name="textbox2" TextWrapping="Wrap" Width="100" Background="#FFF48FB1" TextChanged="PlaceOrder"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="麥香雞漢堡(套餐)" Width="200" FontSize="24"/>
+                <Label Content="140元" RenderTransformOrigin="0.485,0.414" Width="80" FontSize="24" Height="NaN"/>
+                <TextBox x:Name="textbox3" TextWrapping="Wrap" Width="100" Background="#FFF48FB1" Height="NaN" TextChanged="PlaceOrder"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="麥香雞漢堡(單點)" Width="200" FontSize="24"/>
+                <Label Content="80元" RenderTransformOrigin="0.485,0.414" Width="80" FontSize="24" Height="NaN"/>
+                <TextBox x:Name="textbox4" TextWrapping="Wrap" Width="100" Background="#FFF48FB1" Height="NaN" TextChanged="PlaceOrder"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="雙層牛肉堡(套餐)" Width="200" FontSize="24"/>
+                <Label Content="160元" RenderTransformOrigin="0.485,0.414" Width="80" FontSize="24" Height="NaN"/>
+                <TextBox x:Name="textbox5" TextWrapping="Wrap" Width="100" Background="#FFF48FB1" Height="NaN" TextChanged="PlaceOrder"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="雙層牛肉堡(單點)" Width="200" FontSize="24"/>
+                <Label Content="100元" RenderTransformOrigin="0.485,0.414" Width="80" FontSize="24" Height="NaN"/>
+                <TextBox x:Name="textbox6" TextWrapping="Wrap" Width="100" Background="#FFF48FB1" Height="NaN" TextChanged="PlaceOrder"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Button Content="結帳" RenderTransformOrigin="0.45,-1.052" Click="OK_Click" Height="40" Width="68" Background="#FFF48FB1"/>
+            </StackPanel>
+
+        </StackPanel>
+        <TextBlock x:Name="order" HorizontalAlignment="Left" Margin="445,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Height="319" Width="331"/>
+
+    </Grid>
+</Window>
